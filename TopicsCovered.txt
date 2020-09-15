@@ -1,0 +1,16 @@
+If-else `
+loop `
+array `
+class-objects `
+friend function `
+inline function
+constructor
+destructor
+single inhertance `
+Multilevel inhertance `
+Multiple inhertance `
+Pointer to object
+Pointer to derived class
+operator overloading
+function overloading
+read and write data from file
