@@ -12,8 +12,9 @@ class Student : public Person{
 public:
      int id, roll_no;
      string class_teacher;
-     const static int fees = 72000;
+     static int fees;
 };
+int Student::fees=72000;
 class Sem1Student : public Student{
      string subjects[6] = {"ENG", "BMS", "BSC", "WPC", "ICT", "EGE"};
      int marks[6];
@@ -346,7 +347,7 @@ int main(){
           int choice;
           cout << "\n1. Add Student 2.Add Teacher 3.Add Principal";
           cout << "\n4. Display Student 5.Display Teacher 6.Display Principal";
-          cout << "\n7.Exit" << endl;
+          cout << "\n7.Change Fees 8.Exit" << endl;
           cin >> choice;
           switch (choice){
           case 1:
@@ -528,6 +529,14 @@ int main(){
                }
                break;
           case 7:
+               Student *ptr;
+               ptr = &s1[0];
+               int new_fees;
+               cout<<"\nEnter new Fees: ";
+               cin>>new_fees;
+               ptr->fees=new_fees;
+               break;
+          case 8:
                exit(0);
                break;
           default:

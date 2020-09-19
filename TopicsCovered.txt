@@ -7,6 +7,6 @@ Pointer to object  `
 function overloading `
 constructor `
 destructor `
-Pointer to derived class
+Pointer to derived class `
 operator overloading
 read and write data from file
