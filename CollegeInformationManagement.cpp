@@ -14,7 +14,7 @@ public:
      string class_teacher;
      const static int fees = 72000;
 };
-class Sem1Student : private Student{
+class Sem1Student : public Student{
      string subjects[6] = {"ENG", "BMS", "BSC", "WPC", "ICT", "EGE"};
      int marks[6];
 public:
@@ -23,7 +23,7 @@ public:
           cout << "\n\n###############################";
           cout << "\nEnter details for student: ";
           cout << "\nId, Roll No, Name, Age, Class Teacher: ";
-          cin >> id >> roll_no >> name >> age;
+          cin >> id >> roll_no >> name >> age >> class_teacher;
           cout << "\nEnter the Marks: ";
           cout << "\nEnglish, BasicMaths, Basic Science, Workshop practice, Information Communication technology, Engineering Graphics: ";
           cin >> marks[0] >> marks[1] >> marks[2] >> marks[3] >> marks[4] >> marks[5];
@@ -57,7 +57,7 @@ public:
           cout << "\n\n###############################";
           cout << "\nEnter details for student: ";
           cout << "\nId, Roll No, Name, Age, Class Teacher: ";
-          cin >> id >> roll_no >> name >> age;
+          cin >> id >> roll_no >> name >> age >> class_teacher;
           cout << "\nEnter the Marks: ";
           cout << "\nElements of Electrical, Mathematics, Basic Electronics, Programming in C, Business Communication, Computer Perpherals, WebPage Designing: ";
           cin >> marks[0] >> marks[1] >> marks[2] >> marks[3] >> marks[4] >> marks[5] >> marks[6];
@@ -92,7 +92,7 @@ public:
           cout << "\n\n###############################";
           cout << "\nEnter details for student: ";
           cout << "\nId, Roll No, Name, Age, Class Teacher: ";
-          cin >> id >> roll_no >> name >> age;
+          cin >> id >> roll_no >> name >> age >> class_teacher;
           cout << "\nEnter the Marks: ";
           cout << "\nObject Oriented Programming, Data Structures, Computer Graphics, DataBase Management, Digital Techniques: ";
           cin >> marks[0] >> marks[1] >> marks[2] >> marks[3] >> marks[4];
@@ -125,7 +125,7 @@ public:
           cout << "\n\n###############################";
           cout << "\nEnter details for student: ";
           cout << "\nId, Roll No, Name, Age, Class Teacher: ";
-          cin >> id >> roll_no >> name >> age;
+          cin >> id >> roll_no >> name >> age >> class_teacher;
           cout << "\nEnter the Marks: ";
           cout << "\nJava Programming, Software Engineering, Data Communication and Computer Network, Microprocessors, GUI Application development using VB.net: ";
           cin >> marks[0] >> marks[1] >> marks[2] >> marks[3] >> marks[4];
@@ -158,7 +158,7 @@ public:
           cout << "\n\n###############################";
           cout << "\nEnter details for student: ";
           cout << "\nId, Roll No, Name, Age, Class Teacher: ";
-          cin >> id >> roll_no >> name >> age;
+          cin >> id >> roll_no >> name >> age >> class_teacher;
           cout << "\nEnter the Marks: ";
           cout << "\nEnvironmental Studies, Operating Systems, Advanced Java Programming, Software Testing, Advanced Database Managemnent, Industrial Testing, Capstone Project Planning: ";
           cin >> marks[0] >> marks[1] >> marks[2] >> marks[3] >> marks[4] >> marks[5] >> marks[6];
@@ -193,7 +193,7 @@ public:
           cout << "\n\n###############################";
           cout << "\nEnter details for student: ";
           cout << "\nId, Roll No, Name, Age, Class Teacher: ";
-          cin >> id >> roll_no >> name >> age;
+          cin >> id >> roll_no >> name >> age >> class_teacher;
           cout << "\nEnter the Marks, Programming with Python, Mobile Application Development, Emerging Trends in Computer and IT, Web Based Development using PHP, Enterpreneurship Development, Capstone Project: ";
           cout << "\nManagement: ";
           cin >> marks[0] >> marks[1] >> marks[2] >> marks[3] >> marks[4] >> marks[5] >> marks[6];
@@ -324,8 +324,6 @@ void inputTeacher(Teacher t){
      }
 }
 
-void displayStudent(){
-}
 void displayTeacher(){
 }
 
@@ -347,7 +345,7 @@ int main(){
      while (1){
           int choice;
           cout << "\n1. Add Student 2.Add Teacher 3.Add Principal";
-          cout << "\n4. Display Student 5.Display Techear 6.Display Principal";
+          cout << "\n4. Display Student 5.Display Teacher 6.Display Principal";
           cout << "\n7.Exit" << endl;
           cin >> choice;
           switch (choice){
@@ -458,7 +456,65 @@ int main(){
                }
                break;
           case 4:
-               displayStudent();
+               int choice_sem,choice_id,i;
+               cout<<"Enter the sem and id of Student: ";
+               cin>>choice_sem>>choice_id;
+               switch(choice_sem){
+                    case 1:
+                         for(i=0;i<MAX;i++){
+                              if(choice_id==s1[i].id){
+                                   s1[i].display();
+                                   break;
+                              }
+                         }
+                         break;
+                    case 2:
+                         for(i=0;i<MAX;i++){
+                              if(choice_id==s2[i].id){
+                                   s2[i].display();
+                                   break;
+                              }
+                         }
+                         break;
+                    case 3:
+                         for(i=0;i<MAX;i++){
+                              if(choice_id==s3[i].id){
+                                   s3[i].display();
+                                   break;
+                              }
+                         }
+                         break;
+                    case 4:
+                         for(i=0;i<MAX;i++){
+                              if(choice_id==s4[i].id){
+                                   s4[i].display();
+                                   break;
+                              }
+                         }
+                         break;
+                    case 5:
+                         for(i=0;i<MAX;i++){
+                              if(choice_id==s5[i].id){
+                                   s5[i].display();
+                                   break;
+                              }
+                         }
+                         break;
+                    case 6:
+                         for(i=0;i<MAX;i++){
+                              if(choice_id==s6[i].id){
+                                   s6[i].display();
+                                   break;
+                              }
+                         }
+                         break;
+                    default:
+                         cout<<"Invalid Semester";
+                         break;
+               }
+               if(i==MAX){
+                    cout<<"No Student found having id "<<choice_id;
+               }
                break;
           case 5:
                displayTeacher();
