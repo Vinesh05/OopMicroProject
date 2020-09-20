@@ -367,7 +367,6 @@ int main(){
      while (1){
           int choice,choice_id,choice_sem,i;
           ofstream logFile("log.txt",ios::app);
-          logFile.flush();
           cout << "\n1.Add Student \n2.Add Teacher \n3.Add Principal";
           cout << "\n4.Display Student \n5.Display Teacher \n6.Display Principal";
           cout << "\n7.Delete last added Student\n8.Delete last added teacher\n9.Delete Principal";
