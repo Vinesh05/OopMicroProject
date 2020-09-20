@@ -341,7 +341,7 @@ int main(){
      Sem5Student s5[MAX];
      Sem6Student s6[MAX];
      Teacher t[MAX];
-     Principal *p,*q = new Principal(" ");
+     Principal p(" ");
      programStarted();
      while (1){
           int choice,choice_id,choice_sem,i;
@@ -460,12 +460,14 @@ int main(){
                     if (att == 1){
                          cout << "\nEnter the Name of Principal: ";
                          cin >> name;
-                         new (q) Principal(name);
+                         // new (q) Principal(name);
+                         Principal q(name);
                          memcpy(&p, &q, sizeof q);
                          principal++;
                          logFile<<"Principal added"<<endl;
                          logFile.close();
                          cout<<"\nPrincipal added";
+                         Sleep(2000);
                     }
                     else if (att == 2){
                          cout << "\nEnter the Name of Principal: ";
@@ -474,21 +476,24 @@ int main(){
                          cin >> age;
                          cout << "\nEnter the Principal Since Year: ";
                          cin >> psy;
-                         new (q) Principal(name, age, psy);
+                         // new (q) Principal(name, age, psy);
+                         Principal q(name,age,psy);
                          memcpy(&p, &q, sizeof q);
                          principal++;
                          logFile<<"Principal added"<<endl;
                          logFile.close();
                          cout<<"\nPrincipal added";
+                         Sleep(2000);
                     }
                     else{
                          cout << "Invalid Number"<<"\a";
+                         Sleep(2000);
                     }
                }
                else{
                     cout << "One Principal already exists"<<"\a";
+                    Sleep(2000);
                }
-               Sleep(2000);
                system("CLS");
                break;
           case 4:
@@ -562,7 +567,7 @@ int main(){
                if(i==MAX){
                     cout<<"No Student found having id "<<choice_id<<"\a";
                }
-               Sleep(5000);
+               Sleep(4000);
                system("CLS");
                break;
           case 5:
@@ -579,24 +584,24 @@ int main(){
                if(i==MAX){
                     cout<<"\nNo Teacher found having id: "<<choice_id<<"\a";
                }
-               Sleep(2000);
+               Sleep(4000);
                system("CLS");
                break;
           case 6:
                if (principal != 0){
-                    p->display();
+                    p.display();
                     logFile<<"Principal Displayed: "<<endl;
                     logFile.close();
                }
                else{
                     cout << "\nNo pricipal Exists"<<"\a";
                }
-               Sleep(2000);
+               Sleep(4000);
                system("CLS");
                break;
           case 7:
                if(principal!=0){
-                    p->~Principal();
+                    p.~Principal();
                     principal--;
                }
                else{
