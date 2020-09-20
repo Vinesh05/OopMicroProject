@@ -51,6 +51,9 @@ public:
           cout << "\n"<< subjects[5] << "\t\t" << marks[5];
           cout << "\n###############################";
      }
+     void operator -(){
+          id=-1;
+     }
 };
 class Sem2Student : public Student{
      string subjects[7] = {"EEC", "AMI", "BEC", "PCI", "BCC", "CPH", "WPD"};
@@ -86,6 +89,9 @@ public:
           cout << "\n"<< subjects[6] << "\t\t" << marks[6];
           cout << "\n###############################";
      }
+     void operator -(){
+          id=-1;
+     }
 };
 class Sem3Student : public Student{
      string subjects[5] = {"OOP", "DSU", "CGR", "DMS", "DTE"};
@@ -119,6 +125,9 @@ public:
           cout << "\n"<< subjects[4] << "\t\t" << marks[4];
           cout << "\n###############################";
      }
+     void operator -(){
+          id=-1;
+     }
 };
 class Sem4Student : public Student{
      string subjects[5] = {"JPR", "SEN", "DCC", "MIC", "GAD"};
@@ -151,6 +160,9 @@ public:
           cout << "\n"<< subjects[3] << "\t\t" << marks[3];
           cout << "\n"<< subjects[4] << "\t\t" << marks[4];
           cout << "\n###############################";
+     }
+     void operator -(){
+          id=-1;
      }
 };
 class Sem5Student : public Student{
@@ -187,6 +199,9 @@ public:
           cout << "\n"<< subjects[6] << "\t\t" << marks[6];
           cout << "\n###############################";
      }
+     void operator -(){
+          id=-1;
+     }
 };
 class Sem6Student : public Student{
      string subjects[7] = {"MGT", "PWP", "MAD", "ETI", "WBP", "EDE", "CPE"};
@@ -221,6 +236,9 @@ public:
           cout << "\n"<< subjects[5] << "\t\t" << marks[5];
           cout << "\n###############################";
      }
+     void operator -(){
+          id=-1;
+     }
 };
 class Staff{
 public:
@@ -233,7 +251,7 @@ public:
           fflush(stdin);
           cout << "\nDetails of Teacher: ";
           cout << "\nId, Name, Age, Salary, Class Teacher of: ";
-          cin >> id>> name>> age>> salary>> class_teacher_of;
+          cin >> id >> name >> age >> salary >> class_teacher_of;
           subjects[0] = subject1;
           subjects[1] = subject2;
           subjects[2] = subject3;
@@ -243,7 +261,7 @@ public:
           fflush(stdin);
           cout << "\nDetails of Teacher: ";
           cout << "\nId, Name, Age, Salary, Class Teacher of: ";
-          cin >> id>> name>> age>> salary>> class_teacher_of;
+          cin >> id >> name >> age >> salary >> class_teacher_of;
           subjects[0] = subject1;
           subjects[1] = subject2;
           subjects[2] = " ";
@@ -253,14 +271,17 @@ public:
           fflush(stdin);
           cout << "\nDetails of Teacher: ";
           cout << "\nId, Name, Age, Salary, Class Teacher of: ";
-          cin >> id>> name>> age>> salary>> class_teacher_of;
+          cin >> id >> name >> age >> salary >>class_teacher_of;
           subjects[0] = subject1;
           subjects[1] = " ";
           subjects[2] = " ";
           cout << "###############################";
      }
-     friend void inputTeacher(Teacher);
-     friend void dispTeacher(Teacher);
+     friend void inputTeacher(Teacher &);
+     friend void dispTeacher(Teacher &);
+     void operator -(){
+          id=-1;
+     }
 };
 class Principal : public Person{
      int principal_since_year;
@@ -291,7 +312,7 @@ public:
      }
 };
 
-void dispTeacher(Teacher t){
+void dispTeacher(Teacher &t){
      cout << "\n###############################";
      cout << "\nDetails of Teacher: ";
      cout << "\nId: " << t.id;
@@ -302,7 +323,7 @@ void dispTeacher(Teacher t){
      cout << "\nSubjects: " << t.subjects[0] << " " << t.subjects[1] << " " << t.subjects[2];
      cout << "\n###############################";
 }
-void inputTeacher(Teacher t){
+void inputTeacher(Teacher &t){
      int nofsub;
      string subject1, subject2, subject3;
      cout << "\n###############################";
@@ -349,7 +370,8 @@ int main(){
           logFile.flush();
           cout << "\n1.Add Student \n2.Add Teacher \n3.Add Principal";
           cout << "\n4.Display Student \n5.Display Teacher \n6.Display Principal";
-          cout << "\n7.Delete Principal \n8.Change Fees \n9.Exit" << endl;
+          cout << "\n7.Delete last added Student\n8.Delete last added teacher\n9.Delete Principal";
+          cout << " \n10.Change Fees \n11.Exit" << endl;
           cin >> choice;
           switch (choice){
           case 1:
@@ -363,7 +385,7 @@ int main(){
                          sem1++;
                          logFile<<"Sem 1 Student added"<<endl;
                          logFile.close();
-                         cout<<"Sem 1 Student added";
+                         cout<<"\nSem 1 Student added";
                     }
                     else{
                          cout << "\nMax Number of Student reached for Sem1"<<"\a";
@@ -375,7 +397,7 @@ int main(){
                          sem2++;
                          logFile<<"Sem 2 Student added"<<endl;
                          logFile.close();
-                         cout<<"Sem 2 Student added";
+                         cout<<"\nSem 2 Student added";
                     }
                     else{
                          cout << "\nMax Number of Student reached for Sem2"<<"\a";
@@ -387,7 +409,7 @@ int main(){
                          sem3++;
                          logFile<<"Sem 3 Student added"<<endl;
                          logFile.close();
-                         cout<<"Sem 3 Student added";
+                         cout<<"\nSem 3 Student added";
                     }
                     else{
                          cout << "\nMax Number of Student reached for Sem3"<<"\a";
@@ -399,7 +421,7 @@ int main(){
                          sem4++;
                          logFile<<"Sem 4 Student added"<<endl;
                          logFile.close();
-                         cout<<"Sem 4 Student added";
+                         cout<<"\nSem 4 Student added";
                     }
                     else{
                          cout << "\nMax Number of Student reached for Sem4"<<"\a";
@@ -411,7 +433,7 @@ int main(){
                          sem5++;
                          logFile<<"Sem 5 Student added"<<endl;
                          logFile.close();
-                         cout<<"Sem 5 Student added";
+                         cout<<"\nSem 5 Student added";
                     }
                     else{
                          cout << "\nMax Number of Student reached for Sem5"<<"\a";
@@ -423,7 +445,7 @@ int main(){
                          sem6++;
                          logFile<<"Sem 6 Student added"<<endl;
                          logFile.close();
-                         cout<<"Sem 6 Student added";
+                         cout<<"\nSem 6 Student added";
                     }
                     else{
                          cout << "\nMax Number of Student reached for Sem6"<<"\a";
@@ -439,6 +461,7 @@ int main(){
           case 2:
                if (teacher < MAX){
                     inputTeacher(t[teacher]);
+                    cout<<endl<<t[teacher].id;
                     teacher++;
                     logFile<<"Teacher added"<<endl;
                     logFile.close();
@@ -571,7 +594,7 @@ int main(){
                system("CLS");
                break;
           case 5:
-               cout<<"\nEnter the id of Teacher";
+               cout<<"\nEnter the id of Teacher: ";
                cin>>choice_id;
                for(i=0;i<MAX;i++){
                     if(choice_id==t[i].id){
@@ -600,6 +623,89 @@ int main(){
                system("CLS");
                break;
           case 7:
+               cout<<"\nEnter the sem of Student: ";
+               cin>>choice_sem;
+               switch(choice_sem){
+                    case 1:
+                         if(sem1>0){
+                              sem1--;
+                              -s1[sem1];
+                              cout<<"\nStudent Deleted";
+                         }
+                         else{
+                              cout<<"\nNo Student exists of Sem 1";
+                         }
+                         break;
+                    case 2:
+                         if(sem2>0){
+                              sem2--;
+                              -s2[sem2];
+                              cout<<"\nStudent Deleted";
+                         }
+                         else{
+                              cout<<"\nNo Student exists of Sem 2";
+                         }
+                         break;
+                    case 3:
+                         if(sem3>0){
+                              sem3--;
+                              -s3[sem3];
+                              cout<<"\nStudent Deleted";
+                         }
+                         else{
+                              cout<<"\nNo Student exists of Sem 3";
+                         }
+                         break;
+                    case 4:
+                         if(sem4>0){
+                              sem4--;
+                              -s4[sem4];
+                              cout<<"\nStudent Deleted";
+                         }
+                         else{
+                              cout<<"\nNo Student exists of Sem 4";
+                         }
+                         break;
+                    case 5:
+                         if(sem5>0){
+                              sem5--;
+                              -s5[sem5];
+                              cout<<"\nStudent Deleted";
+                         }
+                         else{
+                              cout<<"\nNo Student exists of Sem 5";
+                         }
+                         break;
+                    case 6:
+                         if(sem6>0){
+                              sem6--;
+                              -s6[sem6];
+                              cout<<"\nStudent Deleted";
+                         }
+                         else{
+                              cout<<"\nNo Student exists of Sem 6";
+                         }
+                         break;
+                    default:
+                         cout<<"\nInvalid Number";
+                         break;
+               }
+               Sleep(2000);
+               system("CLS");
+               break;
+          case 8:
+               if(teacher>0){
+                    teacher--;
+                    -t[teacher];
+                    cout<<"\nTeacher Deleted";
+               }
+               else{
+                    cout<<"\nNo Teacher Exists";
+               }
+               Sleep(2000);
+               system("CLS");
+               break;
+          case 9:
                if(principal!=0){
                     p.~Principal();
                     principal--;
@@ -610,7 +716,7 @@ int main(){
                Sleep(2000);
                system("CLS");
                break;
-          case 8:
+          case 10:
                Student *ptr;
                ptr = &s1[0];
                int new_fees;
@@ -623,7 +729,7 @@ int main(){
                Sleep(2000);
                system("CLS");
                break;
-          case 9:
+          case 11:
                logFile<<"Program Ended"<<endl;
                logFile.close();
                exit(0);
