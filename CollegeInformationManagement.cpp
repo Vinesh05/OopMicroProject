@@ -1,5 +1,8 @@
 #include <iostream>
+#include <fstream>
 #include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
 using namespace std;
 #define MAX 100
 
@@ -341,13 +344,15 @@ int main(){
      Sem5Student s5[MAX];
      Sem6Student s6[MAX];
      Teacher t[MAX];
-     Principal *p, *q = new Principal(" ");
+     Principal *p,*q = new Principal(" ");
      programStarted();
      while (1){
           int choice;
-          cout << "\n1. Add Student 2.Add Teacher 3.Add Principal";
-          cout << "\n4. Display Student 5.Display Teacher 6.Display Principal";
-          cout << "\n7.Change Fees 8.Exit" << endl;
+          ofstream logFile("log.txt",ios::app);
+          logFile.flush();
+          cout << "\n1.Add Student \n2.Add Teacher \n3.Add Principal";
+          cout << "\n4.Display Student \n5.Display Teacher \n6.Display Principal";
+          cout << "\n7.Change Fees \n8.Exit" << endl;
           cin >> choice;
           switch (choice){
           case 1:
@@ -359,6 +364,8 @@ int main(){
                     if (sem1 < MAX){
                          s1[sem1].input();
                          sem1++;
+                         logFile<<"Sem 1 Student added"<<endl;
+                         logFile.close();
                     }
                     else{
                          cout << "\nMax Number of Student reached for Sem1";
@@ -368,6 +375,8 @@ int main(){
                     if (sem2 < MAX){
                          s2[sem2].input();
                          sem2++;
+                         logFile<<"Sem 2 Student added"<<endl;
+                         logFile.close();
                     }
                     else{
                          cout << "\nMax Number of Student reached for Sem2";
@@ -377,6 +386,8 @@ int main(){
                     if (sem3 < MAX){
                          s3[sem3].input();
                          sem3++;
+                         logFile<<"Sem 3 Student added"<<endl;
+                         logFile.close();
                     }
                     else{
                          cout << "\nMax Number of Student reached for Sem3";
@@ -386,6 +397,8 @@ int main(){
                     if (sem4 < MAX){
                          s4[sem4].input();
                          sem4++;
+                         logFile<<"Sem 4 Student added"<<endl;
+                         logFile.close();
                     }
                     else{
                          cout << "\nMax Number of Student reached for Sem4";
@@ -395,6 +408,8 @@ int main(){
                     if (sem5 < MAX){
                          s5[sem5].input();
                          sem5++;
+                         logFile<<"Sem 5 Student added"<<endl;
+                         logFile.close();
                     }
                     else{
                          cout << "\nMax Number of Student reached for Sem5";
@@ -404,6 +419,8 @@ int main(){
                     if (sem6 < MAX){
                          s6[sem6].input();
                          sem6++;
+                         logFile<<"Sem 6 Student added"<<endl;
+                         logFile.close();
                     }
                     else{
                          cout << "\nMax Number of Student reached for Sem6";
@@ -413,22 +430,26 @@ int main(){
                     cout << "\nInvalid Number";
                     break;
                }
+               system("CLS");
                break;
           case 2:
                if (teacher < MAX){
                     inputTeacher(t[teacher]);
                     teacher++;
+                    logFile<<"Teacher added"<<endl;
+                    logFile.close();
                }
                else{
                     cout << "\nMax Number of Teachers Reached";
                }
+               system("CLS");
                break;
           case 3:
                if (principal == 0){
                     int att, age, psy;
                     string name;
                     cout << "\nSelect the attributes for Principal";
-                    cout << "\n1.Name 2.Name, Age, Principal Since Year: ";
+                    cout << "\n1.Name \n2.Name, Age, Principal Since Year: \n";
                     cin >> att;
                     if (att == 1){
                          cout << "\nEnter the Name of Principal: ";
@@ -436,6 +457,8 @@ int main(){
                          new (q) Principal(name);
                          memcpy(&p, &q, sizeof q);
                          principal++;
+                         logFile<<"Principal added"<<endl;
+                         logFile.close();
                     }
                     else if (att == 2){
                          cout << "\nEnter the Name of Principal: ";
@@ -447,6 +470,8 @@ int main(){
                          new (q) Principal(name, age, psy);
                          memcpy(&p, &q, sizeof q);
                          principal++;
+                         logFile<<"Principal added"<<endl;
+                         logFile.close();
                     }
                     else{
                          cout << "Invalid Number";
@@ -455,6 +480,7 @@ int main(){
                else{
                     cout << "One Principal already exists";
                }
+               system("CLS");
                break;
           case 4:
                int choice_sem,choice_id,i;
@@ -465,6 +491,8 @@ int main(){
                          for(i=0;i<MAX;i++){
                               if(choice_id==s1[i].id){
                                    s1[i].display();
+                                   logFile<<"Student Dispalyed of Sem 1 and Id:"<<choice_id<<endl;
+                                   logFile.close();
                                    break;
                               }
                          }
@@ -473,6 +501,8 @@ int main(){
                          for(i=0;i<MAX;i++){
                               if(choice_id==s2[i].id){
                                    s2[i].display();
+                                   logFile<<"Student Dispalyed of Sem 2 and Id:"<<choice_id<<endl;
+                                   logFile.close();
                                    break;
                               }
                          }
@@ -481,6 +511,8 @@ int main(){
                          for(i=0;i<MAX;i++){
                               if(choice_id==s3[i].id){
                                    s3[i].display();
+                                   logFile<<"Student Dispalyed of Sem 3 and Id:"<<choice_id<<endl;
+                                   logFile.close();
                                    break;
                               }
                          }
@@ -489,6 +521,8 @@ int main(){
                          for(i=0;i<MAX;i++){
                               if(choice_id==s4[i].id){
                                    s4[i].display();
+                                   logFile<<"Student Dispalyed of Sem 4 and Id:"<<choice_id<<endl;
+                                   logFile.close();
                                    break;
                               }
                          }
@@ -497,6 +531,8 @@ int main(){
                          for(i=0;i<MAX;i++){
                               if(choice_id==s5[i].id){
                                    s5[i].display();
+                                   logFile<<"Student Dispalyed of Sem 5 and Id:"<<choice_id<<endl;
+                                   logFile.close();
                                    break;
                               }
                          }
@@ -505,6 +541,8 @@ int main(){
                          for(i=0;i<MAX;i++){
                               if(choice_id==s6[i].id){
                                    s6[i].display();
+                                   logFile<<"Student Dispalyed of Sem 6 and Id:"<<choice_id<<endl;
+                                   logFile.close();
                                    break;
                               }
                          }
@@ -516,6 +554,8 @@ int main(){
                if(i==MAX){
                     cout<<"No Student found having id "<<choice_id;
                }
+               Sleep(5000);
+               system("CLS");
                break;
           case 5:
                displayTeacher();
@@ -523,10 +563,14 @@ int main(){
           case 6:
                if (principal != 0){
                     p->display();
+                    logFile<<"Principal Displayed: "<<endl;
+                    logFile.close();
                }
                else{
                     cout << "\nNo pricipal Exists";
                }
+               Sleep(3000);
+               system("CLS");
                break;
           case 7:
                Student *ptr;
@@ -535,15 +579,25 @@ int main(){
                cout<<"\nEnter new Fees: ";
                cin>>new_fees;
                ptr->fees=new_fees;
+               logFile<<"Fees Changed"<<endl;
+               logFile.close();
+               cout<<"\nFees Changed to "<<new_fees<<endl;
+               Sleep(2000);
+               system("CLS");
                break;
           case 8:
+               logFile<<"Program Ended"<<endl;
+               logFile.close();
                exit(0);
+               system("CLS");
                break;
           default:
                cout << "\nEnter Valid Number";
+               cout<<"\a";
+               Sleep(1000);
+               system("CLS");
                break;
           }
      }
-
      return 0;
 }
