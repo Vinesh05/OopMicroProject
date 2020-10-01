@@ -1,0 +1,49 @@
+1. Start
+2. Declare arrays of Sem1 to Sem6 Students, Teacher. 
+3. Initialize infinite while loop.
+4. initialize logFile and Display Menu.
+5. Read choice of user.
+6. According to the choice from 1 to 11 follow Below steps.
+7. If Choice is 1:(Add Student)
+         Read the semester of Student
+         According to semester, Call the Input function of object in array.
+         Break through the Switch.
+8. If Choice is 2:(Add Teacher)
+         Call the input function of Teacher Object in Array.
+         Break through the Switch.
+9. If Choice is 3:(Add Principal)
+         Create a Principal object and copy it to original object of Principal.
+         Break through the Switch.
+10.If Choice is 4:(Display Student)
+         Read the Semester and Id of Student
+         Search through the array of Students to find the Student with that id.
+         Call the display function of that student.
+         Break through the Switch.
+11.If Choice is 5:(Display Teacher)
+         Read the id of Teacher
+         Search the array of Teachers to find the Teacher with that id.
+         Call the display function of that teacher.
+         Break through the Switch.
+12.If Choice is 6:(Display Principal)
+         If a Principal is added
+            Call the display function of Principal
+         else
+            Display No Principal Exists.
+         Break Through the Switch.
+13.If Choice is 7:(Delete Student)
+         Read the sem of Student
+         Change the Id of Last Added Student to -1.
+         Break through the Switch.
+14.If Choice is 8:(Delete Teacher)
+         Change the Id of last added teacher to -1.
+         Break through the Switch.
+15.If Choice is 9:(Delete Principal)
+         Call the destructor of Principal.
+         Break through the Switch.
+16.If Choice is 10:(Change Fees)
+         Change the fees of a single Student using Pointer
+         Break through the Switch.
+17.If Choice is 11:(Exit)
+         Call the exit funciton to Exit while loop;
+18. Stop
+
