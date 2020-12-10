@@ -363,6 +363,7 @@ int main(){
      Sem6Student s6[MAX];
      Teacher t[MAX];
      Principal p(" ");
+     system("CLS");
      programStarted();
      while (1){
           int choice,choice_id,choice_sem,i;
@@ -460,7 +461,6 @@ int main(){
           case 2:
                if (teacher < MAX){
                     inputTeacher(t[teacher]);
-                    cout<<endl<<t[teacher].id;
                     teacher++;
                     logFile<<"Teacher added"<<endl;
                     logFile.close();
@@ -601,6 +601,7 @@ int main(){
                          logFile<<"Teacher Displayed with id:"<<choice_id<<endl;
                          logFile.close();
                          cout<<"\nTeacher Displayed with id:"<<choice_id;
+                         break;
                     }
                }
                if(i==MAX){
@@ -616,7 +617,7 @@ int main(){
                     logFile.close();
                }
                else{
-                    cout << "\nNo pricipal Exists"<<"\a";
+                    cout << "\nNo principal Exists"<<"\a";
                }
                Sleep(4000);
                system("CLS");
